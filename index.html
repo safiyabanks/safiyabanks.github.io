@@ -1,607 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Safiya Banks — Rutgers Business School finance student portfolio.">
-  <title>Safiya Banks | Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safiya Banks | Portfolio</title>
 
-  <style>
-    :root {
-      --blue: #4b9ed8;
-      --blue-dark: #256b9f;
-      --blue-light: #eaf6ff;
-      --text: #17324d;
-      --muted: #5d7183;
-      --white: #ffffff;
-      --border: #d9eaf6;
-      --shadow: 0 14px 40px rgba(48, 111, 155, 0.10);
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #17324d;
+            background: #ffffff;
+        }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: linear-gradient(180deg, #f7fcff 0%, #ffffff 45%, #f5fbff 100%);
-      line-height: 1.6;
-    }
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #dcecf7;
+        }
 
-    a {
-      color: inherit;
-    }
+        .nav-inner {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(255,255,255,.94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
+        .nav-name {
+            font-size: 20px;
+            font-weight: 700;
+        }
 
-    .nav-inner {
-      max-width: 1120px;
-      margin: auto;
-      padding: 17px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
 
-    .logo {
-      font-size: 20px;
-      font-weight: 800;
-    }
+        .nav-links a {
+            color: #4d687d;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-    }
+        .nav-links a:hover {
+            color: #3d8fc9;
+        }
 
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
-    }
+        .hero {
+            max-width: 1100px;
+            min-height: 650px;
+            margin: auto;
+            padding: 70px 24px;
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 70px;
+            align-items: center;
+        }
 
-    .nav-links a:hover {
-      color: var(--blue-dark);
-    }
+        .school {
+            display: inline-block;
+            color: #317eaf;
+            background: #eaf6ff;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
 
-    .hero {
-      max-width: 1120px;
-      margin: auto;
-      min-height: 680px;
-      padding: 80px 24px 70px;
-      display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      align-items: center;
-      gap: 60px;
-    }
+        h1 {
+            font-size: clamp(50px, 7vw, 76px);
+            line-height: 1;
+            letter-spacing: -3px;
+            margin-bottom: 22px;
+        }
 
-    .eyebrow {
-      display: inline-block;
-      padding: 7px 13px;
-      border-radius: 999px;
-      background: var(--blue-light);
-      color: var(--blue-dark);
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
+        h1 span {
+            color: #4b9ed8;
+        }
 
-    h1 {
-      font-size: clamp(48px, 7vw, 76px);
-      line-height: 1.02;
-      letter-spacing: -3px;
-      margin-bottom: 18px;
-    }
+        .statement {
+            max-width: 650px;
+            font-size: 21px;
+            line-height: 1.6;
+            color: #5d7183;
+            margin-bottom: 24px;
+        }
 
-    .hero h1 span {
-      color: var(--blue);
-    }
+        .email {
+            color: #317eaf;
+            text-decoration: none;
+            font-weight: 600;
+        }
 
-    .statement {
-      max-width: 670px;
-      font-size: 21px;
-      color: var(--muted);
-      margin-bottom: 28px;
-    }
+        .email:hover {
+            text-decoration: underline;
+        }
 
-    .contact-line {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 18px;
-      color: var(--muted);
-      font-size: 15px;
-      margin-bottom: 28px;
-    }
+        .headshot {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 28px;
+            border: 8px solid #ffffff;
+            box-shadow: 0 15px 40px rgba(48, 111, 155, 0.14);
+            background: #d8d8d8;
+        }
 
-    .contact-line a {
-      color: var(--blue-dark);
-      text-decoration: none;
-      font-weight: 700;
-    }
+        section {
+            padding: 75px 24px;
+        }
 
-    .contact-line a:hover {
-      text-decoration: underline;
-    }
+        .section-inner {
+            max-width: 1100px;
+            margin: auto;
+        }
 
-    .button {
-      display: inline-block;
-      background: var(--blue);
-      color: white;
-      text-decoration: none;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: 800;
-      box-shadow: 0 8px 22px rgba(75,158,216,.24);
-    }
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 28px;
+            letter-spacing: -1px;
+        }
 
-    .button:hover {
-      background: var(--blue-dark);
-    }
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
 
-    .headshot-wrap {
-      display: flex;
-      justify-content: center;
-    }
+        .skill {
+            padding: 17px;
+            border: 1px solid #dcecf7;
+            border-radius: 12px;
+            background: #f7fcff;
+            font-weight: 600;
+            color: #31536c;
+        }
 
-    .headshot {
-      width: min(360px, 85vw);
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 32px;
-      border: 10px solid white;
-      box-shadow: var(--shadow);
-      background: #ddd;
-    }
+        #projects {
+            background: #f4faff;
+        }
 
-    section {
-      padding: 85px 24px;
-    }
+        .project {
+            background: #ffffff;
+            border: 1px solid #dcecf7;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(48, 111, 155, 0.07);
+        }
 
-    .section-inner {
-      max-width: 1120px;
-      margin: auto;
-    }
+        .project:last-child {
+            margin-bottom: 0;
+        }
 
-    .section-label {
-      color: var(--blue-dark);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
+        .project-label {
+            color: #4b9ed8;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
 
-    h2 {
-      font-size: clamp(32px, 4vw, 44px);
-      line-height: 1.1;
-      letter-spacing: -1.2px;
-      margin-bottom: 15px;
-    }
+        .project h3 {
+            font-size: 27px;
+            line-height: 1.25;
+            margin-bottom: 15px;
+            color: #17324d;
+        }
 
-    .section-intro {
-      color: var(--muted);
-      max-width: 720px;
-      margin-bottom: 35px;
-    }
+        .project p {
+            color: #5d7183;
+            font-size: 16px;
+            line-height: 1.75;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
 
-    .about-card,
-    .project-card,
-    .contact-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-    }
+        .pdf-link {
+            display: inline-block;
+            color: #ffffff;
+            background: #4b9ed8;
+            text-decoration: none;
+            padding: 11px 16px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 700;
+        }
 
-    .about-card {
-      padding: 32px;
-    }
+        .pdf-link:hover {
+            background: #317eaf;
+        }
 
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 13px;
-    }
+        footer {
+            text-align: center;
+            padding: 28px 24px;
+            color: #5d7183;
+            border-top: 1px solid #dcecf7;
+            font-size: 14px;
+        }
 
-    .skill {
-      padding: 15px 17px;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      font-weight: 700;
-      color: #31536c;
-    }
+        @media (max-width: 800px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
 
-    .projects {
-      display: grid;
-      gap: 24px;
-    }
+            .headshot {
+                width: 290px;
+                margin: auto;
+                display: block;
+            }
 
-    .project-card {
-      padding: 32px;
-    }
+            .statement {
+                margin-left: auto;
+                margin-right: auto;
+            }
 
-    .project-number {
-      color: var(--blue);
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-    .project-card h3 {
-      font-size: clamp(23px, 3vw, 31px);
-      line-height: 1.2;
-      margin-bottom: 14px;
-    }
+        @media (max-width: 500px) {
+            .nav-links {
+                display: none;
+            }
 
-    .project-card p {
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 920px;
-      margin-bottom: 22px;
-    }
+            .skills {
+                grid-template-columns: 1fr;
+            }
 
-    .project-link {
-      display: inline-block;
-      color: var(--blue-dark);
-      background: var(--blue-light);
-      text-decoration: none;
-      padding: 10px 15px;
-      border-radius: 9px;
-      font-weight: 800;
-    }
-
-    .project-link:hover {
-      background: #dcefff;
-    }
-
-    .contact-card {
-      padding: 34px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
-    }
-
-    .contact-card p {
-      color: var(--muted);
-    }
-
-    .email {
-      color: var(--blue-dark);
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .email:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      padding: 35px 24px;
-      color: #71879a;
-      font-size: 14px;
-      border-top: 1px solid var(--border);
-    }
-
-    @media (max-width: 800px) {
-      .nav-inner {
-        padding: 15px 18px;
-      }
-
-      .nav-links {
-        gap: 12px;
-      }
-
-      .nav-links a {
-        font-size: 12px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding-top: 60px;
-      }
-
-      .statement {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .contact-line {
-        justify-content: center;
-      }
-
-      .headshot-wrap {
-        order: -1;
-      }
-
-      .headshot {
-        width: 280px;
-      }
-
-      .skills {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .contact-card {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      .skills {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 65px 18px;
-      }
-
-      .project-card,
-      .about-card,
-      .contact-card {
-        padding: 24px;
-      }
-    }
-  </style>
+            .project {
+                padding: 24px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="logo">Safiya Banks</div>
+    <nav>
+        <div class="nav-inner">
+            <div class="nav-name">Safiya Banks</div>
 
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
-
-    <section class="hero">
-
-      <div>
-        <div class="eyebrow">Rutgers Business School · Finance</div>
-
-        <h1>Hi, I'm <span>Safiya.</span></h1>
-
-        <p class="statement">
-          Hi, I’m Safiya Banks, a finance major focused on financial analysis and real estate.
-        </p>
-
-        <div class="contact-line">
-          <span>📍 Rutgers Business School</span>
-          <span>
-            ✉
-            <a href="mailto:safiyams101@gmail.com">
-              safiyams101@gmail.com
-            </a>
-          </span>
+            <ul class="nav-links">
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <a class="button" href="#projects">
-          Explore My Work
-        </a>
-      </div>
+    <main>
 
-      <div class="headshot-wrap">
-        <img
-          class="headshot"
-          src="headshot.jpg"
-          alt="Headshot of Safiya Banks"
-        >
-      </div>
+        <section class="hero">
+            <div>
+                <div class="school">RUTGERS BUSINESS SCHOOL</div>
 
-    </section>
+                <h1>Safiya <span>Banks</span></h1>
 
+                <p class="statement">
+                    Hi, I’m Safiya Banks, a finance major focused on financial analysis and real estate.
+                </p>
 
-    <section id="about">
+                <a class="email" href="mailto:safiyams101@gmail.com">
+                    safiyams101@gmail.com
+                </a>
+            </div>
 
-      <div class="section-inner">
+            <div>
+                <img
+                    class="headshot"
+                    src="headshot.jpg.JPG"
+                    alt="Safiya Banks"
+                >
+            </div>
+        </section>
 
-        <div class="section-label">About</div>
+        <section id="skills">
+            <div class="section-inner">
+                <h2 class="section-title">Skills</h2>
 
-        <h2>Finance, analysis &amp; real estate.</h2>
+                <div class="skills">
+                    <div class="skill">Excel</div>
+                    <div class="skill">AutoCAD</div>
+                    <div class="skill">Problem solving</div>
+                    <div class="skill">Time management</div>
+                    <div class="skill">Leadership</div>
+                    <div class="skill">Microsoft Powerpoint</div>
+                    <div class="skill">Databases</div>
+                    <div class="skill">Microsoft Word</div>
+                </div>
+            </div>
+        </section>
 
-        <div class="about-card">
-          <p>
-            I am a finance major at Rutgers Business School with an interest
-            in financial analysis and real estate. This portfolio highlights
-            selected academic work, business projects, and skills I am
-            developing throughout my studies.
-          </p>
-        </div>
+        <section id="projects">
+            <div class="section-inner">
+                <h2 class="section-title">Projects</h2>
 
-      </div>
+                <article class="project">
+                    <div class="project-label">Project 1</div>
 
-    </section>
+                    <h3>
+                        Navigating Hybrid Work Challenges in Building Automation:
+                        An Organizational Analysis and Strategic Roadmap for Somfy Systems
+                    </h3>
 
+                    <p>
+                        Developed for my Management Skills course, this paper examines how hybrid work dynamics and market volatility have decreased employee engagement and trust within the Sales and Distribution Department at Somfy Systems. The study analyzes how task-focused management and reactive workflows leave frontline workers feeling disconnected. To resolve this output problem, my team recommended increasing leadership transparency and implementing structured, biweekly goal-alignment check-ins modeled after systems applied by Intel and FedEx.
+                    </p>
 
-    <section id="skills">
+                    <a
+                        class="pdf-link"
+                        href="Navigating%20Hybrid%20Work%20Challenges%20in%20Building%20Automation_%20An%20Organizational%20Analysis%20and%20Strategic%20Roadmap%20for%20Somfy%20Systems.pdf"
+                        target="_blank"
+                    >
+                        Open PDF
+                    </a>
+                </article>
 
-      <div class="section-inner">
+                <article class="project">
+                    <div class="project-label">Project 2</div>
 
-        <div class="section-label">Skills</div>
+                    <h3>Scarlet Storage Business Idea</h3>
 
-        <h2>What I bring.</h2>
+                    <p>
+                        This project idea was developed as a comprehensive business venture pitch, <em>Scarlet Storage</em>, an affordable, student-staffed moving and storage solution designed to simplify the transition between residence halls and off-campus housing. The proposal details end-to-end operational workflows (SIPOC), financial goals, employee engagement frameworks, and international expansion strategies. Through data-driven efficiency tracking, merchandise partnerships, and strong corporate social responsibility initiatives, the plan delivers a realistic model for university logistics.
+                    </p>
 
-        <p class="section-intro">
-          A mix of technical, analytical, and professional skills developed
-          through coursework and projects.
-        </p>
+                    <a
+                        class="pdf-link"
+                        href="Scarlet%20Storage%20Business%20Idea.pdf"
+                        target="_blank"
+                    >
+                        Open PDF
+                    </a>
+                </article>
+            </div>
+        </section>
 
-        <div class="skills">
+    </main>
 
-          <div class="skill">Excel</div>
-          <div class="skill">AutoCAD</div>
-          <div class="skill">Problem Solving</div>
-          <div class="skill">Time Management</div>
-          <div class="skill">Leadership</div>
-          <div class="skill">Microsoft PowerPoint</div>
-          <div class="skill">Databases</div>
-          <div class="skill">Microsoft Word</div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <section id="projects">
-
-      <div class="section-inner">
-
-        <div class="section-label">Projects</div>
-
-        <h2>Selected work.</h2>
-
-        <p class="section-intro">
-          A selection of academic projects demonstrating analysis,
-          strategy, and business problem-solving.
-        </p>
-
-        <div class="projects">
-
-          <!-- PROJECT 1 -->
-          <article class="project-card">
-
-            <div class="project-number">Project 01</div>
-
-            <h3>
-              Navigating Hybrid Work Challenges in Building Automation:
-              An Organizational Analysis and Strategic Roadmap for Somfy Systems
-            </h3>
-
-            <p>
-              Developed for my Management Skills course, this paper examines
-              how hybrid work dynamics and market volatility have decreased
-              employee engagement and trust within the Sales and Distribution
-              Department at Somfy Systems. The study analyzes how task-focused
-              management and reactive workflows leave frontline workers feeling
-              disconnected. To resolve this output problem, my team recommended
-              increasing leadership transparency and implementing structured,
-              biweekly goal-alignment check-ins modeled after systems applied
-              by Intel and FedEx.
-            </p>
-
-            <a
-              class="project-link"
-              href="projects/hybrid-work-somfy.pdf"
-              target="_blank"
-              rel="noopener"
-            >
-              Open Project PDF ↗
-            </a>
-
-          </article>
-
-
-          <!-- PROJECT 2 -->
-          <article class="project-card">
-
-            <div class="project-number">Project 02</div>
-
-            <h3>Scarlet Storage Business Idea</h3>
-
-            <p>
-              This project idea was developed as a comprehensive business
-              venture pitch, <em>Scarlet Storage</em>, an affordable,
-              student-staffed moving and storage solution designed to simplify
-              the transition between residence halls and off-campus housing.
-              The proposal details end-to-end operational workflows (SIPOC),
-              financial goals, employee engagement frameworks, and international
-              expansion strategies. Through data-driven efficiency tracking,
-              merchandise partnerships, and strong corporate social
-              responsibility initiatives, the plan delivers a realistic model
-              for university logistics.
-            </p>
-
-            <a
-              class="project-link"
-              href="projects/scarlet-storage.pdf"
-              target="_blank"
-              rel="noopener"
-            >
-              Open Project PDF ↗
-            </a>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <section id="contact">
-
-      <div class="section-inner">
-
-        <div class="section-label">Contact</div>
-
-        <div class="contact-card">
-
-          <div>
-            <h2>Let's connect.</h2>
-            <p>Feel free to reach out by email.</p>
-          </div>
-
-          <a
-            class="email"
-            href="mailto:safiyams101@gmail.com"
-          >
-            safiyams101@gmail.com
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <footer>
-    © 2026 Safiya Banks · Rutgers Business School
-  </footer>
+    <footer>
+        Safiya Banks
+    </footer>
 
 </body>
 </html>
