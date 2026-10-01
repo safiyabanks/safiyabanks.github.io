@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Name | Portfolio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: white;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav h2 {
+            color: #222;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #0077cc;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 60px 8%;
+            background: white;
+        }
+
+        .hero-text {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #0077cc;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #0077cc;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background: #005fa3;
+        }
+
+        /* Sections */
+        section {
+            padding: 70px 8%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        /* Projects */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .project h3 {
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #222;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <h2>Your Name</h2>
+
+        <div>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+
+    <!-- Main Introduction -->
+    <div class="hero">
+        <div class="hero-text">
+
+            <h1>Hi, I'm <span>Your Name</span>.</h1>
+
+            <p>
+                Business student interested in technology, data,
+                and creating solutions to real-world problems.
+            </p>
+
+            <a class="button" href="#projects">
+                View My Work
+            </a>
+
+        </div>
+    </div>
+
+
+    <!-- About -->
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <p>
+            I'm a student building my skills in business, technology,
+            and data. This portfolio showcases my coursework,
+            projects, and experience.
+        </p>
+
+    </section>
+
+
+    <!-- Projects -->
+    <section id="projects">
+
+        <h2>Projects</h2>
+
+        <div class="projects">
+
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>
+                    Description of your project and what you learned.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>
+                    Description of your project and what you learned.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>Project 3</h3>
+                <p>
+                    Description of your project and what you learned.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact">
+
+        <h2>Contact</h2>
+
+        <p>
+            Email: your@email.com
+        </p>
+
+        <p>
+            <a href="https://github.com/" target="_blank">
+                GitHub
+            </a>
+        </p>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Your Name</p>
+    </footer>
+
+</body>
+</html>
